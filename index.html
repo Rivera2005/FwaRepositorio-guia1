@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCraft Studio</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #ecf0f1;
+            color: var(--secondary-color);
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: var(--primary-color);
+        }
+        .hero {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            margin-top: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .service-card {
+            background: white;
+            padding: 2rem;
+            margin: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            flex-basis: calc(33.333% - 2rem);
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            color: var(--primary-color);
+        }
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>WebCraft Studio</h1>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Diseñamos Tu Presencia Digital</h2>
+            <p>Transformamos ideas en experiencias web cautivadoras</p>
+            <a href="#contacto" class="btn">Comienza Tu Proyecto</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="servicios" class="services">
+            <div class="service-card">
+                <h3>Diseño Web</h3>
+                <p>Creamos sitios web atractivos y responsivos que capturan la esencia de tu marca.</p>
+            </div>
+            <div class="service-card">
+                <h3>Desarrollo Frontend</h3>
+                <p>Implementamos interfaces de usuario dinámicas y eficientes con las últimas tecnologías.</p>
+            </div>
+            <div class="service-card">
+                <h3>SEO y Marketing Digital</h3>
+                <p>Optimizamos tu presencia en línea para aumentar tu visibilidad y alcance.</p>
+            </div>
+        </section>
+    </main>
+
+    <button id="theme-toggle">🌓</button>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        let isDarkMode = false;
+
+        themeToggle.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                root.style.setProperty('--primary-color', '#2980b9');
+                root.style.setProperty('--secondary-color', '#34495e');
+                root.style.setProperty('--accent-color', '#e74c3c');
+                document.body.style.backgroundColor = '#2c3e50';
+                document.body.style.color = '#ecf0f1';
+            } else {
+                root.style.setProperty('--primary-color', '#3498db');
+                root.style.setProperty('--secondary-color', '#2c3e50');
+                root.style.setProperty('--accent-color', '#e74c3c');
+                document.body.style.backgroundColor = '#ecf0f1';
+                document.body.style.color = '#2c3e50';
+            }
+        });
+
+        // Animación suave para el scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
