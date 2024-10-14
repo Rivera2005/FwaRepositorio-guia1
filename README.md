@@ -1,27 +1,45 @@
-
 # Guía 1 FWA - Ejemplo de Index Sencillo con Docker
 
 Este repositorio contiene un ejemplo sencillo de un index para ser desplegado utilizando Docker.
 
 ## Prerrequisitos
 
+- [Git](https://git-scm.com/) (opcional, para clonar el repositorio)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ## Instrucciones de uso
 
+### Paso 1: Obtener el código
+
+Tienes dos opciones para obtener el código del proyecto:
+
+#### Opción A: Clonar el repositorio (requiere Git)
+
+1. Abre una terminal.
+2. Ejecuta el siguiente comando:
+   ```
+   git clone [URL_DEL_REPOSITORIO]
+   ```
+   Reemplaza `[URL_DEL_REPOSITORIO]` con la URL real del repositorio.
+
+#### Opción B: Descargar como ZIP
+
+1. Ve a la página principal del repositorio en GitHub.
+2. Haz clic en el botón "Code" y selecciona "Download ZIP".
+3. Descarga el archivo ZIP y descomprímelo en tu computadora.
+
 ### Opción 1: Construir y ejecutar la imagen localmente
 
-1. Clona este repositorio.
-2. Abre una terminal en el directorio del proyecto.
-3. Construye la imagen Docker:
+1. Abre una terminal en el directorio del proyecto.
+2. Construye la imagen Docker:
    ```
    docker build -t [nombre-imagen] .
    ```
-4. Ejecuta el contenedor:
+3. Ejecuta el contenedor:
    ```
    docker run -d -p 8080:80 [nombre-imagen]
    ```
-5. Abre tu navegador y visita `http://localhost:8080` para ver la página.
+4. Abre tu navegador y visita `http://localhost:8080` para ver la página.
 
 ### Opción 2: Utilizar la imagen preconfigurada de Docker Hub
 
@@ -40,5 +58,5 @@ Este repositorio contiene un ejemplo sencillo de un index para ser desplegado ut
 
 ## Notas adicionales
 
-- Si tienes problemas para abrir Docker Desktop, búscalo en la barra de búsqueda de Windows o en la barra de tareas busca un icono de una flechita(junto al reloj) y luego busca un icono de ballena.
+- Si tienes problemas para abrir Docker Desktop, búscalo en la barra de búsqueda de Windows o en la barra de tareas busca un icono de una flechita (junto al reloj) y luego busca un icono de ballena.
 - Asegúrate de que Docker Desktop esté en ejecución antes de intentar construir o ejecutar contenedores.
